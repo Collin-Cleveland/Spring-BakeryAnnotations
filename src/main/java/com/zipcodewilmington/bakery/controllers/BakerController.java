@@ -20,19 +20,19 @@ public class BakerController {
         return new ResponseEntity<>(service.index(), HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Baker> show(Long id) {
+    public ResponseEntity<Baker> show(@PathVariable Long id) {
         return new ResponseEntity<>(service.show(id), HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<Baker> create(Baker baker) {
+    public ResponseEntity<Baker> create(@RequestBody Baker baker) {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Baker> update(Long id, Baker baker) {
+    public ResponseEntity<Baker> update(@PathVariable Long id, @RequestBody Baker baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> destroy(Long id) {
+    public ResponseEntity<Boolean> destroy(@PathVariable Long id) {
         return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
     }
 }
